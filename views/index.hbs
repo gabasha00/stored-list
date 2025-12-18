@@ -1,7 +1,39 @@
-<h1>Songs</h1>
+<h1>My Favorite Songs List</h1>
+
+<form action="/item" method="POST" style="margin-bottom: 20px;">
+  <input name="title" placeholder="Song title" required />
+  <input name="artist" placeholder="Artist" required />
+  <button type="submit" class="add">Add</button>
+</form>
+
+<hr />
+
 
 <ul>
   {{#each songs}}
-    <li><strong>{{this.title}}</strong> — {{this.artist}}</li>
+    <li style="margin-bottom: 14px;">
+      <strong>{{this.title}}</strong> — {{this.artist}}
+      
+      <form
+        action="/item/{{this._id}}?_method=DELETE"
+        method="POST"
+        style="display:inline;"
+      >
+        <button type="submit">Delete</button>
+      </form>
+
+      
+      <details style="display:inline-block; margin-left: 10px;">
+        <summary>Edit</summary>
+        <form
+          action="/item/{{this._id}}?_method=PUT"
+          method="POST"
+        >
+          <input name="title" value="{{this.title}}" required />
+          <input name="artist" value="{{this.artist}}" required />
+          <button type="submit">Save</button>
+        </form>
+      </details>
+    </li>
   {{/each}}
 </ul>
