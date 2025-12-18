@@ -1,8 +1,16 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: azure;
+  font-size: 30px;
+
 }
 
 a {
   color: #00B7FF;
+}
+
+li {
+  padding: 30px;
+  font-size: 30px;
 }
