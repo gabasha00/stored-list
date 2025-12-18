@@ -1,9 +1,16 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express', list: [] });
+const Song = require("../models/song");
+
+router.get("/", async (req, res, next) => {
+  try {
+    const songs = await Song.find();
+    res.render("index", { songs });
+  } catch (err) {
+    next(err);
+  }
 });
 
 module.exports = router;
+

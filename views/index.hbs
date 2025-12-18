@@ -1,7 +1,7 @@
-<h1>Express</h1>
-<ul>
-{{#each list}}
-<li>{{this}}</li>
-{{/each}}
-</ul>
+<h1>Songs</h1>
 
+<ul>
+  {{#each songs}}
+    <li><strong>{{this.title}}</strong> — {{this.artist}}</li>
+  {{/each}}
+</ul>
